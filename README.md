@@ -30,14 +30,14 @@ This repo contains an example Desktop full of ML tools and development packages.
 The following command will build the example image. Run this command locally on the system you have installed Kasm Workspaces on.
 
 ```
-sudo docker build -t kasmweb/desktop-ml:1.9.0 .
+sudo docker build -t kasmweb/desktop-ml:1.13.0 .
 ```
 
-If you wish to create your own custom image, be sure to base from the Kasm open-source CUDA based Ubuntu image and match the tag to the version of Kasm Workspaces that you have deployed. For example, if you are running Workspaces 1.9.0, you should be running images released from Kasm with the tag 1.9.0.
+If you wish to create your own custom image, be sure to base from the Kasm open-source CUDA based Ubuntu image and match the tag to the version of Kasm Workspaces that you have deployed. For example, if you are running Workspaces 1.13.0, you should be running images released from Kasm with the tag 1.13.0.
 
 # GPU Support
 
-Kasm Workspaces (formally Kasm Server) version 1.9.0 and higher supports NVIDIA GPUs. The following requirements must be met.
+Kasm Workspaces (formally Kasm Server) version 1.13.0 and higher supports NVIDIA GPUs. The following requirements must be met.
 * NVIDIA GPUs with Architecture >= Kepler (or compute capability 3.0)
 * NVIDIA container toolkit must be installed on the host
 
@@ -57,7 +57,7 @@ If an image is configured to require a GPU, it will fail to provision if there i
 
 Add a new Workspace image to the deployment and launch. 
 1. Clone the Kasm Desktop Image
-2. Change the name field to "kasmweb/desktop-ml:1.9.0"
+2. Change the name field to "kasmweb/desktop-ml:1.13.0"
 3. Update the Friendly name and description as desired
 4. If your system has a GPU, check the require GPU box and set the desired number of GPUs to assign. Set to 0 to assign all available GPUs.
 5. Set the desired CPU cores and RAM that shall be assigned to an instance of this image
@@ -70,7 +70,7 @@ Add a new Workspace image to the deployment and launch.
 While this image is primarily built to run inside the Kasm Workspaces platform, it can also be executed manually by itself.  Please note that certain functionality, such as audio, web filtering, uploads/downloads, etc, is only available within the Kasm platform.
 
 ```
-sudo docker run --rm  -it --shm-size=512m -p 6901:6901 -e VNC_PW=password kasmweb/desktop-ml:1.9.0
+sudo docker run --rm  -it --shm-size=512m -p 6901:6901 -e VNC_PW=password kasmweb/desktop-ml:1.13.0
 ```
 
 The container is now accessible via a browser : `https://<IP>:6901`
